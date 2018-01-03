@@ -1,0 +1,55 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<% if (email) { %>
+				<table class="table">
+					<th>Expire Date</th>
+					<th>Image</th>
+					<th>Issue Date</th>
+					<th>Number</th>
+					<th>Type</th>
+					<th>Current Status</th>
+					<th>Change Status</th>
+					<%if (data[Object.keys(data)[0]] === "" || data[Object.keys(data)[0]] === undefined || data[Object.keys(data)[0]] === null) { %>
+						No data Found 
+						
+					<% }else{ %>
+						<tr>
+							<td><%= data[Object.keys(data)[0]] %></td>
+							<td><img class="img-login" src="<%= data[Object.keys(data)[1]] %>" alt="not found"></td>
+							<td><%= data[Object.keys(data)[2]] %></td>
+							<td><%= data[Object.keys(data)[3]] %></td>
+							<td><%= data[Object.keys(data)[4]] %></td>
+							<td><%if (status != ""){ %>
+								<%if (status == 0){ %>
+									<a href="#">Not Approved</a>
+								<% }else if(status == 1){ %>
+									<a href="#">Approved</a>
+								<% } %>
+								
+							<%}else{%>
+								<%if (status == 0){ %>
+									<a href="#">Not Approved</a>
+								<% } %>
+							<% } %></td>
+							<!-- change status -->
+							<td><%if (status != ""){ %>
+								<%if (status == 0){ %>
+									<a href="/UpdateStatus?id=<%= id %>&field=licence&status=1">Approved</a>
+								<% }else if(status == 1){ %>
+									<a href="/UpdateStatus?id=<%= id %>&field=licence&status=0">Not Approved</a>
+								<% } %>
+								
+							<%}else{%>
+								<%if (status == ""){ %>
+									<a href="/UpdateStatus?id=<%= id %>&field=licence&status=1">Approved</a>
+								<% } %>
+							<% } %></td>
+						</tr>
+					<% } %>
+				</table>
+			<% } %>
+		</div>
+	</div>
+<% include footer %>

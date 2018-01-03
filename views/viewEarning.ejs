@@ -1,0 +1,56 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+		<h3> Earnings </h3>
+		<div class="row">
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-primary">
+					<div class="card-body pb-0">
+						<h4 class="mb-0">Today</h4>
+						<p>$ <%- earningsperday %></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-info">
+					<div class="card-body pb-0">
+						<h4 class="mb-0">This Week</h4>
+						<p>$ <%- earningperweek.toFixed(2); %></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-warning">
+					<div class="card-body pb-0">
+						<h4 class="mb-0">This Month</h4>
+						<p>$ <%- earningspermonth.toFixed(2); %></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6 col-lg-3">
+				<div class="card text-white bg-danger">
+					<div class="card-body pb-0">
+						<h4 class="mb-0">This year</h4>
+						<p>$ <%- earningperyear.toFixed(2); %></p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="circle-design">
+			<!--a href="/earningRides/<%= driverid %>?type=today"></a>
+			<a href="/earningRides/<%= driverid %>?type=week"></a>
+			<a href="/earningRides/<%= driverid %>?type=month"></a>
+			<a href="/earningRides/<%= driverid %>?type=year"></a-->
+				<h3 class="col-sm-12 text-left"> Total Rides </h3>
+				<div><%= today.length %></div>
+				<div><%= week.length %></div>
+				<div><%= month.length %></div>
+				<div><%= year.length %></div>
+			</div>
+		</div>
+	</div>
+<% include footer %>

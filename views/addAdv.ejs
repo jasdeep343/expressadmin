@@ -1,0 +1,49 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<h3> Add Advertisement </h3>
+			<!--form method="post" action="/addAdv" enctype="multipart/form-data"-->
+			<form name="add-adv" method="post" action="/addAdv" enctype="multipart/form-data" onSubmit="return formValidation();">
+				<table class="table">
+					<tr>
+						<th width="200">Name : </th>  
+						<td><input class="form-control" type="text" name="name" id="name"></td>
+					</tr>
+					<tr>
+						<th>Description : </th>  
+						<td><input class="form-control" type="text" name="description" id="description"></td>
+					</tr>
+					<tr>				
+						<th>Website : </th>  
+						<td><input class="form-control" type="text" name="website" id="website"></td>
+					</tr>
+					<tr>
+						<th>Image : </th>  
+						<td><input type="file" name="myfile" id="file"></td>
+					</tr> 
+					<tr>
+						<th>Location :</th>   
+						<td><input id="pac-input" class="form-control controls" type="text" placeholder="Search Box">
+							<div class="" id="map11" style="height:250px; width:100%;"></div>
+						</td>
+					</tr> 
+					<tr>
+						<th>Selected Address</th>   
+						<td><textarea type="text" readonly id="formatted_address" class="form-control"></textarea></td>
+					</tr> 
+					<input type="hidden" name="locate" id="locate">
+					<input type="hidden" name="lat" id="lat">
+					<input type="hidden" name="lng" id="lng">
+				</table>
+				<div class="col-md-12">
+					
+				</div>
+				<div class="col-md-12">
+					<div class="btns__style"><input class="btn btn-primary" type="submit" name="Submit" id="submit" value="Submit"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+<% include footer %>

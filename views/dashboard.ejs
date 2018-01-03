@@ -1,0 +1,51 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper" id="empty-div">
+		<div class="container-fluid">
+		<% if (email) { %>
+		<div class="dashboard-text"> 
+			<h1 >Welcome to Vanbr Admin</h1>
+			
+			
+			<div class="">
+			
+				<div class="col-sm-6 col-lg-3 col-custom">
+					<div class="card text-white bg-primary">
+						<div class="card-body pb-0">
+							<h4 class="mb-0">Total Riders</h4>
+							<p><%= rider.length %></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 col-custom">
+					<div class="card text-white bg-info">
+						<div class="card-body pb-0">
+							<h4 class="mb-0">Total Drivers</h4>
+							<p><%= driver.length %></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-sm-6 col-lg-3 col-custom">
+					<div class="card text-white bg-warning">
+						<div class="card-body pb-0">
+							<h4 class="mb-0">Total Rides</h4>
+							<p><%= rides.length %></p>
+						</div>
+					</div>
+				</div>
+			
+				<div class="col-sm-6 col-lg-3 col-custom">
+					<div class="card text-white bg-danger">
+						<div class="card-body pb-0">
+							<h4 class="mb-0">Logged In Users</h4>
+							<p>Riders : <%= loginrides.length %> | Drivers: <%= logindriver.length %></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% } %>
+		</div>
+	</div>
+<% include footer %>

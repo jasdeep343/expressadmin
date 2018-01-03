@@ -1,0 +1,36 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+		<% if (email) { %>
+			<% if(msg === "adv"){%>
+				<table class="table">
+				
+					<th>Sr. No</th>
+					<th>Name</th>
+					<th>Location</th>
+					<th>Description</th>
+					<th>Image</th>
+					<th>Website</th>
+					<th>Delete</th>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+							<tr>
+								<td><%= value + 1 %></td>
+								<td><%= data[Object.keys(data)[value]].name %></td>
+								<td><%= data[Object.keys(data)[value]].location %></td>
+								<td><%= data[Object.keys(data)[value]].description %></td>
+								<td><img class="img-login" src="<%= data[Object.keys(data)[value]].image %>" ></td>
+								<td><%= data[Object.keys(data)[value]].website %></td>
+								<!--td><a href="/updateAdv/<%= key %>/1"> Edit</a></td-->
+								<td><a href="/updateAdv/<%= key %>/2"> Delete</a></td>
+							</tr>
+						<% }) %>
+
+				</table>
+			<% }else if(msg === "data not found"){ %>
+				<h1 class="dashboard-text"><%= msg %></h1>
+			<% } %>
+		<% } %>
+		</div>
+	</div>
+<% include footer %>

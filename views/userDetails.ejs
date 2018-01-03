@@ -1,0 +1,39 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<% if (email) { %>
+				<% if (msg === "user" ) { %>
+					<table class="table">
+						<!--th>id</th-->
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Mobile</th>
+						<th>Role</th>
+					<% for(i=0;  i < Object.keys(data).length; i++){ %>
+						<%if (data[Object.keys(data)[i]].role_id ==2) { %>
+						<tr>
+							<!--td> <%= data[Object.keys(data)[i]].uid %></td-->
+							<td> <%= data[Object.keys(data)[i]].first_name %></td>
+							<td> <%= data[Object.keys(data)[i]].last_name %></td>
+							<td> <%= data[Object.keys(data)[i]].email %>  </td>
+							<td> <%= data[Object.keys(data)[i]].mobile %>  </td>
+						<td> 
+						<%if (data[Object.keys(data)[i]].role_id ==2) { %>
+							User 
+						<% } %>
+						</td>
+						</tr>
+
+						<% } %>
+					<% } %>
+
+					</table>
+				<% }else if(msg === "data not found"){ %>
+					<h1 class="dashboard-text"><%= msg %></h1>
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+<% include footer %>

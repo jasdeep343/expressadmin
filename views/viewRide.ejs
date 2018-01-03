@@ -1,0 +1,71 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+		<h3> Ride Details </h3>
+			<% if (email) { %>
+				<table class="table">
+				
+					<tr> 	<th>Booking Time</th>  
+							<td><% if(data[Object.keys(data)[0]] == "" || data[Object.keys(data)[0]] == undefined){ %>
+							- <% }else{ %>	<%= data[Object.keys(data)[0]] %> <% } %> </td>
+					</tr>
+					<tr> 	<th>Ride State </th>  
+							<td><% if(data[Object.keys(data)[1]] == "" || data[Object.keys(data)[1]] == undefined){ %>
+							- <% }else{ %>
+								<% if(data[Object.keys(data)[1]] == 0){ %><a class="warning">Ride Created</a>
+								<% }else if(data[Object.keys(data)[1]] == 1){ %><a class="info">Accepted</a>
+								<% }else if(data[Object.keys(data)[1]] == 2){ %><a class="danger">Cancelled</a>
+								<% }else if(data[Object.keys(data)[1]] == 3){ %><a class="red">Pick up</a>
+								<% }else if(data[Object.keys(data)[1]] == 4){ %><a class="green">Ride Started</a>
+								<% }else if(data[Object.keys(data)[1]] == 5){ %><a class="success">Ride Ended</a>
+								<% }else{ %> - <% } %>
+							<% } %> </td> 
+					</tr>
+					<tr> 	<th>Vechicle Type </th>
+							<td><% if(data[Object.keys(data)[2]] == "" || data[Object.keys(data)[2]] == undefined){ %>
+							- <% }else{ %>	
+								<% if(data[Object.keys(data)[2]] == 0){ %> 
+									<a class="red">G4</a> 
+								<% }else if(data[Object.keys(data)[2]] == 1){ %>
+									<a class="green">G6</a>
+								<% } %>
+							<% } %> </td>
+					</tr>
+					<tr> 	<th>Total Fare</th>  
+							<td><% if(data[Object.keys(data)[6]] == "" || data[Object.keys(data)[6]] == undefined){ %>
+							- <% }else{ %> $<%= data[Object.keys(data)[6]] %> <% } %> </td>
+					</tr>
+					<tr> 	<th>+ Tax</th>  
+							<td><% if(data[Object.keys(data)[5]] == "" || data[Object.keys(data)[5]] == undefined){ %>
+							- <% }else{ %> $<%= data[Object.keys(data)[5]] %> <% } %> </td> 
+					</tr>
+					<tr> 	<th>= Final Fare</th>  
+							<td><% if(data[Object.keys(data)[3]] == "" || data[Object.keys(data)[3]] == undefined){ %>
+							- <% }else{ %> $<%= data[Object.keys(data)[3]] %> <% } %></td> 
+					</tr>
+					<tr> 	<th>Points</th>  
+							<td><% if(data[Object.keys(data)[4]] == "" || data[Object.keys(data)[4]] == undefined){ %>
+							- <% }else{ %> <%= data[Object.keys(data)[4]] %> <% } %> </td>
+					</tr>
+					<!--tr> 	<th>Total Cost</th> 
+							<td><% if(data[Object.keys(data)[7]] == "" || data[Object.keys(data)[7]] == undefined){ %>
+							- <% }else{ %> <%= data[Object.keys(data)[7]] %> <% } %> </td> 
+					</tr-->
+					<tr> 	<th>Travelling Cost</th>  
+							<td><% if(data[Object.keys(data)[8]] == "" || data[Object.keys(data)[8]] == undefined){ %>
+							- <% }else{ %> <%= data[Object.keys(data)[8]] %> <% } %> </td> 
+					</tr>
+					<tr> 	<th>Vanbr Fee</th>  
+							<td><% if(data[Object.keys(data)[9]] == "" || data[Object.keys(data)[9]] == undefined){ %>
+							- <% }else{ %> <%= data[Object.keys(data)[9]] %> <% } %> </td> 
+					</tr>
+					<tr> 	<th>Tip</th>  
+							<td><% if(data[Object.keys(data)[10]] == "" || data[Object.keys(data)[10]] == undefined){ %>
+							- <% }else{ %> <%= data[Object.keys(data)[10]] %> <% } %></td> 
+					</tr>
+				</table>	
+			<% } %>
+		</div>
+	</div>
+<% include footer %>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <title><%= title %></title>
+    <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css' />
+    <link href='/stylesheets/bootstrap.min.css' rel='stylesheet' />
+    <link href='/stylesheets/font-awesome.min.css' rel='stylesheet' />
+    <link href='/stylesheets/custom.min.css' rel='stylesheet' />
+    <script src='/javascripts/jquery.min.js' type='text/javascript'></script>
+    <script src='/javascripts/bootstrap.min.js' type='text/javascript'></script>
+</head>
+<body class='index'>
+    <div class="index login">
+        <div class="pr-wrap">
+			<div class="container"> 
+			
+				<form class="login" method="post" action="/">
+				
+				<% if (msg.length > 6) { %><%= msg %><% } %>
+				
+					<p class="form-title"><img src="images/logo.png" width="50" height="50" class="responsive-img" alt="VanBr Company Logo"> Admin Panel</p>
+					<input autocomplete="off" class="input-login" type="text" placeholder="Email" name="email"/>
+					<input class="input-login" type="password" placeholder="Password" name="password"/>
+					<input type="submit" value="Sign In" class="btn btn-info btn-sm" />
+					<!--div class="remember-forgot">
+						<div class="row">
+							<div class="col-xs-6">
+								<div class="checkbox">
+									<label><input type="checkbox" />Remember Me</label>
+								</div>
+							</div>
+							<div class="col-xs-6 forgot-pass-content text-right">
+								<a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+							</div>
+						</div>
+					</div-->
+				</form>
+			</div>
+		</div>
+    </div>
+</body>
+</html>

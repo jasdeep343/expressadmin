@@ -1,0 +1,35 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid" id="pagination">
+		<% if (email) { %>
+			<% if(msg === "driver"){%>
+				<table class="table">
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Documents</th>
+					<th>Earnings</th>
+					<% for(i=0;  i < Object.keys(data).length; i++){ %>
+						<%if (data[Object.keys(data)[i]].role_id ==3) { %>
+							<tr>
+								<td> <%= data[Object.keys(data)[i]].first_name %></td>
+								<td> <%= data[Object.keys(data)[i]].last_name %></td>
+								<td> <%= data[Object.keys(data)[i]].email %>  </td>
+								<td> <%= data[Object.keys(data)[i]].mobile %>  </td>
+								<td> 
+									<a href="/Documents?id=<%= data[Object.keys(data)[i]].uid %>&licenceStatus=<%= data[Object.keys(data)[i]].licenceStatus %>&insuranceStatus=<%= data[Object.keys(data)[i]].insuranceStatus %>&vehregistrationStatus=<%= data[Object.keys(data)[i]].vehregistrationStatus %>">Documents</a>
+								</td>
+								<td><a href="/viewEarnings/<%= data[Object.keys(data)[i]].uid %>">view earnings</a></td>
+							</tr>
+						<% } %>
+					<% } %>
+				</table>
+			<% }else if(msg === "data not found"){ %>
+				<h1 class="dashboard-text"><%= msg %></h1>
+			<% } %>
+		<% } %>
+		</div>
+	</div>
+<% include footer %>

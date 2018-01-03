@@ -1,0 +1,53 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid" id="pagination">
+		<% if (email) { %>
+			<% if(msg === "Driver search"){ %>
+				<% include searchbar %>
+				<table class="table">
+					<th>Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Documents</th>
+					<th>Earnings</th>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+							<% if(data[Object.keys(data)[value]].role_id == '3'){ %>
+							<tr>
+								<td><%= data[Object.keys(data)[value]].first_name %> <%= data[Object.keys(data)[value]].last_name %></td>
+								<td><%= data[Object.keys(data)[value]].email %></td>
+								<td><%= data[Object.keys(data)[value]].mobile %> </td>
+								<td> 
+									<a href="/Documents?id=<%= data[Object.keys(data)[value]].uid %>&licenceStatus=<%= data[Object.keys(data)[value]].licenceStatus %>&insuranceStatus=<%= data[Object.keys(data)[value]].insuranceStatus %>&vehregistrationStatus=<%= data[Object.keys(data)[value]].vehregistrationStatus %>">Documents</a>
+								</td>
+								<td><a href="/viewEarnings/<%= data[Object.keys(data)[value]].uid %>">view earnings</a></td>
+							</tr>
+							<% } %>
+					<% }) %>
+				</table>
+			<% }else if(msg === "Rider search"){ %>
+				<% include searchbar %>
+				<table class="table">
+					<th>Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Role</th>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+						<% if(data[Object.keys(data)[value]].role_id == '2'){ %>
+							<tr>
+								<td><%= data[Object.keys(data)[value]].first_name %> <%= data[Object.keys(data)[value]].last_name %></td>
+								<td><%= data[Object.keys(data)[value]].email %></td>
+								<td><%= data[Object.keys(data)[value]].mobile %> </td>
+								<td> User </td>
+							</tr>
+						<% } %>
+					<% }) %>
+				</table>
+			
+			<% }else if(msg === "No Match Found"){ %>
+				<h1 class="dashboard-text"><%= msg %></h1>
+			<% } %>
+		<% } %>
+		</div>
+	</div>
+<% include footer %>

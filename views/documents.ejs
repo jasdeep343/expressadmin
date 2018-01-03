@@ -1,0 +1,76 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<% if(email){ %>
+			<% if(msg == 'not'){ %>
+				<h3> Documents not found</h3> 
+			<% }else{ %>
+				<table class="table">
+					<thead>
+						<th>Document Type</th>
+						<th>Expire Date</th>
+						<th>Image</th>
+						<th>Issue Date</th>
+						<th>Number</th>
+						<!--th>Type</th-->
+						<th>Current Status</th>
+						<th>Change Status</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Licence</td>
+							<td><%= licence[Object.keys(licence)[0]] %></td>
+							<td><img id="myImg" onclick="imgZoom('myImg')" class="img-login" src="<%= licence[Object.keys(licence)[1]] %>" alt="Licence"></td>
+							<td><%= licence[Object.keys(licence)[2]] %></td>
+							<td><%= licence[Object.keys(licence)[3]] %></td>
+							<!--td><%= licence[Object.keys(licence)[4]] %></td-->
+							<td> <% if(licenceStatus == ""){ %> Not Approved <% }else if(licenceStatus == 0){ %> Not Approved <% }else if(licenceStatus == 1){ %> Approved <% } %></td>
+							<td> 	<% if(licenceStatus == "" || licenceStatus == 0){ %>
+										<a href="/UpdateStatus?type=licence&id=<%= id %>&licenceStatus=1&insuranceStatus=<%= insuranceStatus %>&vehregistrationStatus=<%= vehregistrationStatus %>"> Approved </a>
+									<% }else if(licenceStatus == 1){ %>
+										<a href="/UpdateStatus?type=licence&id=<%= id %>&licenceStatus=0&insuranceStatus=<%= insuranceStatus %>&vehregistrationStatus=<%= vehregistrationStatus %>"> Not Approved </a>
+									<% } %>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Insurance</td>
+							<td><%= insurance[Object.keys(insurance)[0]] %></td>
+							<td><img id="myImg1" onclick="imgZoom('myImg1')" class="img-login" src="<%= insurance[Object.keys(insurance)[1]] %>" alt="Insurance"></td>
+							<td><%= insurance[Object.keys(insurance)[2]] %></td>
+							<td><%= insurance[Object.keys(insurance)[3]] %></td>
+							<!--td><%= insurance[Object.keys(insurance)[4]] %></td-->
+							<td> <% if(insuranceStatus == ""){ %> Not Approved <% }else if(insuranceStatus == 0){ %> Not Approved <% }else if(insuranceStatus == 1){ %> Approved <% } %></td>
+							<td> 
+								<% if(insuranceStatus == "" || insuranceStatus == 0){ %>
+									<a href="/UpdateStatus?type=insurance&id=<%= id %>&licenceStatus=<%= licenceStatus %>&insuranceStatus=1&vehregistrationStatus=<%= vehregistrationStatus %>"> Approved </a>
+								<% }else if(insuranceStatus == 1){ %>
+									<a href="/UpdateStatus?type=insurance&id=<%= id %>&licenceStatus=<%= licenceStatus %>&insuranceStatus=0&vehregistrationStatus=<%= vehregistrationStatus %>">Not Approved </a>
+								<% } %>
+							</td>
+						</tr>
+						
+						<tr>
+							<td>Vehicle Registration</td>
+							<td><%= registration[Object.keys(registration)[0]] %></td>
+							<td><img id="myImg2" onclick="imgZoom('myImg2')" class="img-login" src="<%= registration[Object.keys(registration)[1]] %>" alt="Vehicle Registration"></td>
+							<td><%= registration[Object.keys(registration)[2]] %></td>
+							<td><%= registration[Object.keys(registration)[3]] %></td>
+							<!--td><%= registration[Object.keys(registration)[4]] %></td-->
+							<td> <% if(vehregistrationStatus == ""){ %> Not Approved <% }else if(vehregistrationStatus == 0){ %> Not Approved <% }else if(vehregistrationStatus == 1){ %> Approved <% } %></td>
+							<td> 
+								<% if(vehregistrationStatus == "" || vehregistrationStatus == 0){ %>
+									<a href="/UpdateStatus?type=registration&id=<%= id %>&licenceStatus=<%= licenceStatus %>&insuranceStatus=<%= licenceStatus %>&vehregistrationStatus=1"> Approved </a>
+								<% }else if(vehregistrationStatus == 1){ %>
+									<a href="/UpdateStatus?type=registration&id=<%= id %>&licenceStatus=<%= licenceStatus %>&insuranceStatus=<%= licenceStatus %>&vehregistrationStatus=0">Not Approved </a>
+								<% } %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+<% include footer %>

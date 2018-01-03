@@ -1,0 +1,183 @@
+<% include header %>
+<% include navigation %>
+	<div class="content-wrapper">
+		<div class="container-fluid" id="pagination">
+		<% if (email) { %>
+		<% var count = 0 %>
+			<% var begin =  page * 10  %>
+			<% var end = begin + 10 %>
+			<% if(msg === "Rider"){%>
+				<% include searchbar %>
+				<div class="table-responsive">
+				<table class="table">
+					<th>Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Role</th>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+						<% count = count + 1 %>
+						<% if(value + 1 > begin && value + 1 <= end) { %>
+						
+							<tr>
+								<td><%= data[Object.keys(data)[value]].first_name %> <%= data[Object.keys(data)[value]].last_name %></td>
+								<td><%= data[Object.keys(data)[value]].email %></td>
+								<td><%= data[Object.keys(data)[value]].mobile %> </td>
+								<td> User </td>
+							</tr>
+						<% } %>
+					<% }) %>
+				</table>
+				</div>
+			<% } else if(msg === "Driver"){ %>
+				<% include searchbar %>
+				
+				<div class="table-responsive">
+				<table class="table">
+					<th>Name</th>
+					<th>Email</th>
+					<th>Mobile</th>
+					<th>Documents</th>
+					<th>Earnings</th>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+						<% var a = 0; %>	<% var b = 0; %> <% var c = 0; %>
+						<% count = count + 1 %>
+						<% if(value + 1 > begin && value + 1 <= end) { %>
+						
+							<tr>
+								<td><%= data[Object.keys(data)[value]].first_name %> <%= data[Object.keys(data)[value]].last_name %></td>
+								<td><%= data[Object.keys(data)[value]].email %></td>
+								<td><%= data[Object.keys(data)[value]].mobile %> </td>
+								<td><a href="/Documents?id=<%= data[Object.keys(data)[value]].uid %>&licenceStatus=<%= data[Object.keys(data)[value]].licenceStatus %>&insuranceStatus=<%= data[Object.keys(data)[value]].insuranceStatus %>&vehregistrationStatus=<%= data[Object.keys(data)[value]].vehregistrationStatus %>">Documents<a>
+									<% if(data[Object.keys(data)[value]].licenceStatus==undefined){ %>
+									<%} else{ %>
+										<% a = a + 1 %>
+									<% } %>
+									<% if(data[Object.keys(data)[value]].insuranceStatus==undefined){ %>
+									<%} else{ %>
+										<% b = b + 1 %>
+									<% } %>
+									<% if(data[Object.keys(data)[value]].vehregistrationStatus==undefined){ %>
+									<%} else{ %>
+										<% c = c + 1 %>
+									<% } %>
+									<% z = a+b+c %>
+									<% if(z =='0'){%>
+										(No)
+									<% }else if(z =='1'){ %>
+										(1)
+									<% }else if(z =='2'){ %>
+										(2)
+									<% }else if(z =='3'){ %>
+										(all)
+									<% } %>
+								</td>
+								<!--td>
+									<% if(data[Object.keys(data)[value]].licenceStatus=="1"){ %>
+										<% a = a + 1 %>
+									<% } %> 
+									<% if(data[Object.keys(data)[value]].insuranceStatus=="1"){ %>
+										<% b = b + 1 %>
+									<% } %>
+									<% if(data[Object.keys(data)[value]].vehregistrationStatus=="1"){ %>
+										<% c = c + 1 %>
+									<% } %>
+									
+									
+									
+								</td-->
+								<td><a href="/viewEarnings/<%= data[Object.keys(data)[value]].uid %>">view earnings</a></td>
+							</tr>
+						<% } %>
+					<% }) %>
+				</table>
+				</div>
+			<% }else if(msg === "ride"){ %>
+				<form action="/searchRide?page=0" method="get" class="ridesearch">
+					<input type="hidden" name="page" value=<%= page %> >
+					<div><input placeholder="From" type="text" id="datepicker1" name="from"></div>
+					<div><input placeholder="To" type="text" id="datepicker" name="to"></div>
+					<div><input class="btn btn-primary" type="submit" id="submit" name="Submit" value="Submit"></div>
+				</form>
+				<div class="table-responsive">
+				<table class="table">
+				<thead>
+					<th>Sr . no</th>
+					<th>Ride state</th>
+					<th>Vechile Type</th>
+					<th>Ride Details</th>
+				</thead>
+				<tbody>
+					<%  Object.keys(data).forEach(function (key,value) { %>
+					<% count = count + 1 %>
+						<% if(value + 1 > begin && value + 1 <= end) { %>
+						<tr>
+							<td><%= value + 1 %></td>
+							<td><% if(data[Object.keys(data)[value]].ride_state == 0){  %>
+										<a class="warning">Ride Created</a> 
+									<% }else if(data[Object.keys(data)[value]].ride_state == 1){  %>
+										<a class="info">Accepted</a> 
+									<% }else if(data[Object.keys(data)[value]].ride_state == 2){ %>
+										<a class="danger">Cancelled</a> 
+									<% }else if(data[Object.keys(data)[value]].ride_state == 3){ %>
+										<a class="red">Pick up</a> 
+									<% }else if(data[Object.keys(data)[value]].ride_state == 4){ %>
+										<a class="green">Ride Started</a> 
+									<% }else if(data[Object.keys(data)[value]].ride_state == 5){ %>
+										<a class="success">Ride Ended</a> 
+									<% }else{ %>
+										-
+									<% } %>
+							</td>
+							<td> <% if(data[Object.keys(data)[value]].vehicle_type == 0){ %>
+										<a class="red">G4</a> 
+									<% }else if (data[Object.keys(data)[value]].vehicle_type == 1){ %>
+										<a class="green">G6</a>
+									<% } %>
+							</td>
+							<td><a href="/viewRide/<%= key %>"> view ride</a></td>
+						</tr>
+						<% } %>
+					<% }) %>
+					
+				</tbody>
+				</table>
+				</div>
+			<% }else if(msg === "data not found"){ %>
+				<h1 class="dashboard-text"><%= msg %></h1>
+			<% } %>
+		<% } %>
+		</div>
+			<% var pages = count / 10; %>
+			<% var current  = page; %>
+			<% if (pages >= 0) { %>
+                <ul class="pagination text-center">
+					<% if (current == 0) { %>
+						<li class="disabled"><a>First</a></li>
+					<% } else { %>
+						<li><a href="?page=0">First</a></li>
+					<% } %>
+					
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+						
+                        <% if (i - 1 == current ) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="?page=<%= i-1 %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+					<% if (current == parseInt(pages)) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="?page=<%= parseInt(pages) %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+	</div>
+<% include footer %>
