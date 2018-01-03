@@ -1,0 +1,339 @@
+.img-login {height: 100px;width: 100px;}
+a.red { color: red !important;}
+a.green {color: green !important;}
+a.warning {color: blue !important;}
+a.info {color: #FF5733 !important;}
+a.danger {color: #922B21 !important;}
+a.success {color: #21618C !important;}
+
+.circle-design {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 125px 0 0;
+}
+.circle-design div {
+    border-radius: 100%;
+    border: 10px solid #007bff;
+    color: #007bff;
+    width: 130px;
+    height: 130px;
+    display: inline-block;
+    padding: 17px;
+    font-size: 45px;
+    margin: 5px 70px;
+}
+.circle-design div:nth-child(3) {
+    border: 10px solid #17a2b8;
+    color: #17a2b8;
+}
+.circle-design div:nth-child(4) {
+    border: 10px solid #ffc107;
+    color: #ffc107;
+}
+.circle-design div:nth-child(5) {
+    border: 10px solid #dc3545;
+    color: #dc3545;
+}
+a.brand-name {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    color: #fff;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 36px!important;
+    text-decoration: none;
+    line-height: 36px;
+}
+textarea#formatted_address {
+    padding: 20px 20px;
+}
+.dashboard-text h1 {
+    margin: 0 0 70px;
+}
+.dashboard-text {
+    padding: 0 15px;
+	text-align:center;
+}
+.dashboard-text .col-custom{
+    min-width: 400px;
+    margin: 0 0 30px;
+    display: inline-block;
+    width: 100%;
+    float: none;
+}
+.dashboard-text .col-custom .card {
+    border-radius: 50px;
+}
+li.nav-item.dropdown.open ul.dropdown-menu {
+    display: block;
+    position: relative;
+}
+input#mapaddress {
+    width: 50%;
+    height: 60px;
+}
+form[name="add-adv"] .form-control {
+    max-width: 400px;
+    border-radius: 10px;
+}
+.navbar-collapse.collapse.in {
+    display: block;
+}
+.nav-item.dropdown.open .dropdown-menu li a {
+    color: #343a40;
+    padding: 8px 10px;
+    display: block;
+    border-bottom: 1px solid #dfe2e4;
+}
+.nav-item.dropdown.open .dropdown-menu li:last-child a {
+    border-bottom: none;
+}
+.nav-item.dropdown.open .dropdown-menu {
+    padding: 0;
+}
+.card.text-white {
+    margin-bottom: 10px;
+}
+.container-fluid {
+    overflow: auto;
+}
+
+@media (max-width:1100px){
+.dashboard-text {
+    position: relative;
+    margin-top: 60px;
+    width: 100%;
+    right: 0;
+    left: 0;
+    top: auto;
+    transform: none;
+	padding: 0;
+}
+}
+
+/* @media (max-width:991px){
+	body #ui-datepicker-div {
+		z-index: 1 !important;
+	}
+} */
+
+@media (max-width:767px){
+.ridesearch > div >input {
+    max-width: 99px !important;
+    padding: 5px 0 !important;
+    margin: 0 0 10px !important;
+    vertical-align: middle;
+}
+#submit {
+    padding: 7px 15px !important;
+}
+.dashboard-text .col-custom {
+    min-width: 290px;
+    padding: 0;
+}
+.sticky-footer .content-wrapper {
+    min-height: calc(100vh - 56px) !important;
+}
+.fixed-nav {
+    padding-top: 66px !important;
+}
+.sticky-footer {
+    margin-bottom: 0 !important;
+}
+form[name="add-adv"] td, form[name="add-adv"] th {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+	border: none;
+}
+form[name="add-adv"] th {
+    margin-top:10px
+}
+form[name="add-adv"] .col-sm-12 {
+    padding: 0;
+}
+form[name="add-adv"] table.table {
+    margin-bottom: 0;
+}
+.dashboard-text h1 {
+    margin: 0 0 30px;
+}
+.dashboard-text {
+    margin-top: 30px;
+}
+.dashboard-text .col-custom {
+    margin: 0 0 0;
+}
+}
+.pagination {
+    padding-left: 0;
+    margin: 20px 0 20px 20px;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+
+
+/* Modal Content (image) */
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+#myModal.modal {
+    background: #000000d9;
+	overflow: auto;
+}
+#myModal .modal__inner {
+    max-width: 700px;
+    margin: 5% auto;
+}
+#myModal .modal__inner img {
+    width: 100%;
+    height: auto;
+}
+#myModal .close {
+    z-index: 9;
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.search-form .form-group {
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+  background: transparent;
+  box-shadow: none;
+  display:block;
+}
+.search-form {
+    float: right;
+    width: 100%;
+    max-width: 300px;
+}
+.form-control-feedback {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+    font-size: 20px;
+    color: #868e96;
+}
+.sticky-footer {
+    margin-bottom: 0 !important;
+}
+.sticky-footer .content-wrapper {
+    min-height: calc(100vh - 56px) !important;
+}
+.ridesearch > div >input {
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    text-align: center;
+    max-width: 150px;
+	outline:none;
+	margin: 5px;
+}
+.ridesearch > div {
+    display: inline-block;
+}
+.ridesearch {
+    text-align: right;
+}
+#ui-datepicker-div {
+    z-index: 9999 !important;
+}
+#submit {
+    padding: 7px 20px;
+}
+#submit:focus {
+    box-shadow: none !important;
+}
+.swal2-buttonswrapper > .btn {
+    margin: 0 10px;
+}
+.swal2-buttonswrapper > .btn:focus{
+    box-shadow: none;
+}
